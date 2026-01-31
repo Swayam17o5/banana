@@ -10,8 +10,7 @@ timm>=1.0.8
 fastapi==0.115.4
 uvicorn[standard]==0.30.6
 gunicorn==21.2.0
+python-multipart
 
 # Imaging
 pillow>=10.0
-
-
