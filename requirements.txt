@@ -1,8 +1,10 @@
-# CPU-only PyTorch (Railway / Render compatible)
---index-url https://download.pytorch.org/whl/cpu
+# PyTorch CPU wheels
+--extra-index-url https://download.pytorch.org/whl/cpu
 
 torch==2.5.1+cpu
 torchvision==0.21.0+cpu
+
+# Vision models
 timm==1.0.20
 
 # API server
@@ -12,3 +14,4 @@ gunicorn==21.2.0
 
 # Imaging
 pillow==10.4.0
+
