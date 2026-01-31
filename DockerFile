@@ -1,0 +1,39 @@
+# Dockerfile for Banana Disease Detection API
+# Cloud-safe for Render, Railway, Google Cloud Run
+
+FROM python:3.10-slim
+
+# -------------------------------
+# System setup
+# -------------------------------
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# -------------------------------
+# Python dependencies
+# -------------------------------
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# -------------------------------
+# App source
+# -------------------------------
+COPY app.py .
+COPY inference.py .
+COPY model.py .
+
+# Directory for downloaded model
+RUN mkdir -p /app/models
+
+# -------------------------------
+# Cloud-required port (DO NOT CHANGE)
+# -------------------------------
+EXPOSE 8080
+
+# -------------------------------
+# Start server (Cloud compatible)
+# -------------------------------
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
