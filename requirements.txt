@@ -1,11 +1,10 @@
-# PyTorch CPU wheels
+# Allow PyTorch CPU wheels
 --extra-index-url https://download.pytorch.org/whl/cpu
 
-torch==2.5.1+cpu
-torchvision==0.21.0+cpu
-
-# Vision models
-timm==1.0.20
+# Core ML (CPU only)
+torch>=2.5,<2.7
+torchvision>=0.21,<0.23
+timm>=1.0.8
 
 # API server
 fastapi==0.115.4
@@ -13,5 +12,6 @@ uvicorn[standard]==0.30.6
 gunicorn==21.2.0
 
 # Imaging
-pillow==10.4.0
+pillow>=10.0
+
 
